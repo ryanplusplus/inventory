@@ -4,10 +4,15 @@ const Router = require('./Router')
 const BodyParser = require('koa-bodyparser')
 const ErrorHandler = require('./middleware/ErrorHandler')
 const Renderer = require('koa-ejs')
+const Knex = require('knex')
+const knexConfig = require('../knexfile')
+const { Model } = require('objection')
 
 module.exports = () => {
   const app = new Koa()
-  const router = Router()
+
+  const knex = Knex(knexConfig.development)
+  Model.knex(knex)
 
   Renderer(app, {
     root: path.join(__dirname, 'view'),
@@ -16,6 +21,8 @@ module.exports = () => {
     cache: false,
     debug: true
   })
+
+  const router = Router()
 
   app.use(ErrorHandler())
   app.use(BodyParser())

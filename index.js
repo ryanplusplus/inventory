@@ -1,3 +1,3 @@
-const Server = require('./src/Server')
+const App = require('./src/App')
 
-Server().start()
+App().start()

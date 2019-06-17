@@ -1,4 +1,5 @@
 const Router = require('koa-router')
+const GamesController = require('./controller/GamesController')
 
 module.exports = () => {
   const router = new Router();
@@ -8,6 +9,9 @@ module.exports = () => {
       message: 'Hello, World!'
     })
   })
+
+  const gamesController = GamesController()
+  router.get('/games', gamesController.index)
 
   return router
 }
