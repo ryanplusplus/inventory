@@ -11,7 +11,7 @@
   "repository": {},
   "license": "UNLICENSED",
   "dependencies": {
-    "knex": "^0.17.6",
+    "knex": "^0.19.5",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
     "koa-ejs": "^4.2.0",
